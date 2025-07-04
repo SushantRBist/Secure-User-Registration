@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      padding: 20px;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .button {
+      display: inline-block;
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 25px;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+    .footer {
+      font-size: 12px;
+      color: #888;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Password Reset Request</h2>
+    <p>Hi {{ first_name }},</p>
+    <p>You requested to reset your password. Click the button below to reset it:</p>
+    <a class="button" href="{{ reset_link }}">Reset Password</a>
+    <p><strong>Note:</strong> This link will expire in <strong>1 hour</strong>.</p>
+    <p>If you didn't request this, you can safely ignore this email.</p>
+    <div class="footer">
+      <p>— YourApp Security Team</p>
+    </div>
+  </div>
+</body>
+</html>

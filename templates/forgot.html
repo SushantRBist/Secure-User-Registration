@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Forgot Password</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <style>
+    body {
+      background-image: url("{{ url_for('static', filename='images/blue_cloud.jpg') }}");
+      background-size: cover;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .forgot-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .forgot-card {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .forgot-card h2 {
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+
+    .forgot-card form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .forgot-card input[type="email"] {
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    .forgot-card button {
+      padding: 10px;
+      background-color: #397eff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .forgot-card button:hover {
+      background-color: #2f6ee5;
+    }
+
+    .back-link {
+      display: block;
+      margin-top: 15px;
+      text-decoration: none;
+      color: #333;
+      font-size: 13px;
+    }
+
+    .flash {
+      color: green;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="forgot-container">
+    <div class="forgot-card">
+      <h2>Forgot Password</h2>
+
+      <!-- Flash Messages -->
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <div class="flash">
+            {% for message in messages %}
+              <p>{{ message }}</p>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+
+      <form method="POST">
+        <input type="email" name="email" placeholder="Enter your email" required>
+        <button type="submit">Send Reset Link</button>
+      </form>
+
+      <a class="back-link" href="/login">Back to login</a>
+    </div>
+  </div>
+</body>
+</html>

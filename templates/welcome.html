@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url("{{ url_for('static', filename='images/cloud.jpg') }}") no-repeat center center fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .welcome-box {
+      padding: 40px;
+      border-radius: 12px;
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .welcome-box h2 {
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #222;
+    }
+
+    .logout-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #3478f6;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    .logout-btn:hover {
+      background-color: #245ec4;
+    }
+
+    .expiry-notice {
+      margin-top: 15px;
+      font-size: 16px;
+      color: #444;
+    }
+
+    .expiry-notice strong {
+      color: #d9534f;
+    }
+  </style>
+</head>
+<body>
+  <div class="welcome-box">
+    <h2>Welcome to NovaSecure Portal</h2>
+
+    {% if expires_on and days_remaining is not none %}
+      <div class="expiry-notice">
+        🔐 Your password will expire on <strong>{{ expires_on }}</strong>
+        (in {{ days_remaining }} day{{ 's' if days_remaining != 1 else '' }}).
+      </div>
+    {% endif %}
+
+    <a href="{{ url_for('logout') }}" class="logout-btn">Log Out</a>
+  </div>
+</body>
+</html>

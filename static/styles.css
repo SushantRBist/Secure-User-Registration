@@ -1,0 +1,236 @@
+/* ===== General ===== */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: url("/static/images/blue_cloud.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* ===== Register & Login Shared Styles ===== */
+.outer-blur {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 30px;
+  backdrop-filter: blur(14px);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.form-container,
+.form-box {
+  background-color: white;
+  padding: 30px 25px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 420px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.input-checkbox-wrapper {
+  position: relative;
+}
+
+.input-checkbox-wrapper input[type="checkbox"] {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+#matchMessage {
+  color: red;
+  font-size: 13px;
+  text-align: center;
+  display: none;
+}
+
+ul#checklist {
+  background: rgba(100, 100, 100, 0.5);
+  color: white;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 14px;
+  margin-bottom: 16px;
+  list-style: none;
+}
+
+.valid {
+  color: limegreen;
+}
+
+.invalid {
+  color: red;
+}
+
+.g-recaptcha {
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+}
+
+button[type="submit"],
+.btn {
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.links {
+  text-align: center;
+  margin-top: 12px;
+}
+
+.links a {
+  color: #0b0b0b;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+.flash {
+  text-align: center;
+  color: red;
+  margin-bottom: 10px;
+}
+
+/* ===== Login specific ===== */
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-group input[type="checkbox"] {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  margin: 0;
+  width: 16px;
+  height: 16px;
+  accent-color: #3b82f6;
+  cursor: pointer;
+}
+
+/* Login Page Layout */
+.login-page {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form-box {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 400px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-group input[type="text"],
+.input-group input[type="password"] {
+  width: 100%;
+  padding: 12px 40px 12px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.input-group input[type="checkbox"] {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  margin: 0;
+  width: 16px;
+  height: 16px;
+  accent-color: #3b82f6;
+  cursor: pointer;
+}
+
+.flash {
+  background-color: #ffe5e5;
+  color: rgb(21, 237, 82);
+  text-align: center;
+  padding: 8px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #3b82f6;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.links {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.links a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  margin: 5px 0;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}

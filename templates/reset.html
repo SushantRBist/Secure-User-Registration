@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Reset Your Password</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <style>
+    html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url("{{ url_for('static', filename='images/blue_cloud.jpg') }}");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+
+
+    .form-container {
+      max-width: 420px;
+      margin: 60px auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .flash {
+      text-align: center;
+      margin-bottom: 10px;
+      color: rgb(99, 248, 246);
+    }
+
+    .input-checkbox-wrapper {
+      position: relative;
+      margin-bottom: 15px;
+    }
+
+    .input-checkbox-wrapper input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      padding-right: 36px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    .input-checkbox-wrapper input[type="checkbox"] {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      margin: 0;
+      width: 16px;
+      height: 16px;
+      accent-color: #3b82f6;
+      cursor: pointer;
+    }
+
+    #checklist {
+      list-style: none;
+      padding: 12px;
+      background-color: #222;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    #checklist li.valid {
+      color: #00ff5e;
+    }
+
+    #checklist li.invalid {
+      color: #ff4d4d;
+    }
+
+    #passwordMismatch {
+      color: red;
+      font-size: 14px;
+      text-align: center;
+      margin-top: -10px;
+      margin-bottom: 10px;
+      display: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 5px;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #333;
+      font-size: 14px;
+    }
+  </style>
+  <script src="{{ url_for('static', filename='js/reset.js') }}" defer></script>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Reset Your Password</h2>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="flash">
+          {% for category, message in messages %}
+            <p class="{{ category }}">{{ message }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+      <div class="input-checkbox-wrapper">
+        <input type="password" id="new_password" name="new_password" placeholder="New password" required>
+        <input type="checkbox" data-target="new_password" class="toggle-password">
+      </div>
+
+      <div class="input-checkbox-wrapper">
+        <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm new password" required>
+        <input type="checkbox" data-target="confirm_password" class="toggle-password">
+      </div>
+
+      <div id="passwordMismatch">Passwords do not match.</div>
+
+      <ul id="checklist">
+        <li id="lowercase" class="invalid">❌ Lowercase letter</li>
+        <li id="uppercase" class="invalid">❌ Uppercase letter</li>
+        <li id="number" class="invalid">❌ Number</li>
+        <li id="symbol" class="invalid">❌ Special character</li>
+        <li id="length" class="invalid">❌ At least 8 characters</li>
+      </ul>
+
+      <button type="submit" id="resetBtn" disabled>Update Password</button>
+    </form>
+
+    <a href="/login" class="back-link">Back to login</a>
+  </div>
+
+</body>
+</html>

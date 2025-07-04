@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Security Alert</title>
+</head>
+<body style="font-family: Arial, sans-serif; color: #222; background-color: #f9f9f9; padding: 20px;">
+  <div style="max-width: 600px; margin: auto; background-color: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+    <h2 style="color: #d93025;">⚠️ Suspicious Login Activity Detected</h2>
+    <p>Hi {{ first_name }},</p>
+
+    <p>
+      We detected <strong>multiple failed login attempts</strong> on your account <strong>{{ user.username }}</strong> from an unknown device or IP address. As a security precaution, your account login has been <strong>temporarily locked</strong>.
+    </p>
+
+    <p>
+      If this wasn't you, we strongly recommend that you reset your password immediately to secure your account.
+    </p>
+
+    <div style="text-align: center; margin: 30px 0;">
+      <a href="{{ reset_link }}" style="padding: 12px 24px; background-color: #d93025; color: white; text-decoration: none; font-weight: bold; border-radius: 5px;">
+        Reset Password Now
+      </a>
+    </div>
+
+    <p style="color: #555;"><strong>Note:</strong> This link will expire in <strong>1 hour</strong>.</p>
+
+    <p>
+      If you recognize this activity and were attempting to log in, you can safely ignore this message. Otherwise, please take action as soon as possible.
+    </p>
+
+    <hr style="margin: 30px 0; border: none; border-top: 1px solid #eee;">
+
+    <p style="font-size: 13px; color: #999;">
+      YourApp Security Team<br>
+      Do not reply to this email. If you have questions, please contact our support team.
+    </p>
+  </div>
+</body>
+</html>
